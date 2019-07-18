@@ -2,7 +2,6 @@
 
 int main(void)
 {
-    printf("%f\n", 40/13);
-    printf("%d\n", 40%13);
+    printf("%d / %d = %d\n", 40,13,40/13);
     return 0;
 }
