@@ -14,6 +14,7 @@
 int main()
 {
     int cells[10][10];
+    int cells2[10][10];
 
     for(int i = 0; i < 10; i++){
         for(int j = 0; j < 10; j++){
@@ -31,19 +32,23 @@ int main()
     for(int i = 0; i < 10; i++){
         for(int j = 0; j < 10; j++){
             if(cells[i][j] == 0 && cells[i-1][j-1] + cells[i][j-1] + cells[i+1][j-1] + cells[i-1][j] + cells[i+1][j] + cells[i-1][j+1] + cells[i][j+1] + cells[i+1][j+1] == 3){
-                cells[i][j] = 1;
+                cells2[i][j] = 1;
             } else if(cells[i][j] == 0 && cells[i-1][j-1] + cells[i][j-1] + cells[i+1][j-1] + cells[i-1][j] + cells[i+1][j] + cells[i-1][j+1] + cells[i][j+1] + cells[i+1][j+1] != 3){
-                cells[i][j] = 0;
+                cells2[i][j] = 0;
             } else if(cells[i][j] == 1 && 2 <= cells[i-1][j-1] + cells[i][j-1] + cells[i+1][j-1] + cells[i-1][j] + cells[i+1][j] + cells[i-1][j+1] + cells[i][j+1] + cells[i+1][j+1] && cells[i-1][j-1] + cells[i][j-1] + cells[i+1][j-1] + cells[i-1][j] + cells[i+1][j] + cells[i-1][j+1] + cells[i][j+1] + cells[i+1][j+1] <= 3){
-                cells[i][j] = 1;
+                cells2[i][j] = 1;
             } else {
-                cells[i][j] = 0;
+                cells2[i][j] = 0;
             }
+        }
+    }
 
+    for(int i = 0; i < 10; i++){
+        for(int j = 0; j < 10; j++){
             if(j < 9){
-                printf("%d",cells[i][j]);
+                printf("%d",cells2[i][j]);
             } else {
-                printf("%d\n",cells[i][j]);
+                printf("%d\n",cells2[i][j]);
             }
         }
     }
