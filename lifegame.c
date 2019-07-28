@@ -14,10 +14,28 @@
 int main()
 {
     int cells[10][10];
-    
+
     for(int i = 0; i < 10; i++){
         for(int j = 0; j < 10; j++){
             cells[i][j] = rand()%2;
+            if(j < 9){
+                printf("%d",cells[i][j]);
+            } else {
+                printf("%d\n",cells[i][j]);
+            }
+        }
+    }
+
+    printf("\n");
+    
+    for(int i = 0; i < 10; i++){
+        for(int j = 0; j < 10; j++){
+            if(cells[i-1][j-1] + cells[i][j-1] + cells[i+1][j-1] + cells[i-1][j] + cells[i+1][j] + cells[i-1][j+1] + cells[i][j+1] + cells[i+1][j+1] < 3){
+                cells[i][j] = 0;
+            } else {
+                cells[i][j] = 1;
+            }
+
             if(j < 9){
                 printf("%d",cells[i][j]);
             } else {
