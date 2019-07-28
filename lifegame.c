@@ -17,7 +17,7 @@ int main()
 {
     int cells[10][10];
     int cells2[10][10];
- //   srand((unsigned)time(NULL));
+    srand((unsigned)time(NULL));
     for(int y = 0; y < 10; y++){
         for(int x = 0; x < 10; x++){
             cells[y][x] = rand()%2;
