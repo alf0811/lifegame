@@ -36,9 +36,9 @@ int main()
                 cells2[i][j] = 1;
             } else if(cells[i][j] == 0 && neighbor != 3){
                 cells2[i][j] = 0;
-            } else if(cells[i][j] == 1 && (2 <= neighbor || neighbor <= 3)){
+            } else if(cells[i][j] == 1 && (neighbor <= 1 || neighbor >= 4)){
                 cells2[i][j] = 1;
-            } else if(cells[i][j] == 1 && (0 == neighbor || 1 == neighbor || 4 <= neighbor)){
+            } else {
                 cells2[i][j] = 0;
             }
         }
