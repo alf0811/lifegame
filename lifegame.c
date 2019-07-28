@@ -10,17 +10,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 int main()
 {
     int cells[10][10];
-    int a;
-    srand((unsigned)time(NULL));
+    
     for(int i = 0; i < 10; i++){
         for(int j = 0; j < 10; j++){
-            cells[i][j] = a;
-            a = rand()%2;
+            cells[i][j] = rand()%2;
             if(j < 9){
                 printf("%d",cells[i][j]);
             } else {
