@@ -31,13 +31,14 @@ int main()
 
     for(int i = 0; i < 10; i++){
         for(int j = 0; j < 10; j++){
-            if(cells[i][j] == 0 && cells[i-1][j-1] + cells[i][j-1] + cells[i+1][j-1] + cells[i-1][j] + cells[i+1][j] + cells[i-1][j+1] + cells[i][j+1] + cells[i+1][j+1] == 3){
+            int neighbor = cells[i-1][j-1] + cells[i][j-1] + cells[i+1][j-1] + cells[i-1][j] + cells[i+1][j] + cells[i-1][j+1] + cells[i][j+1] + cells[i+1][j+1];
+            if(cells[i][j] == 0 && neighbor == 3){
                 cells2[i][j] = 1;
-            } else if(cells[i][j] == 0 && cells[i-1][j-1] + cells[i][j-1] + cells[i+1][j-1] + cells[i-1][j] + cells[i+1][j] + cells[i-1][j+1] + cells[i][j+1] + cells[i+1][j+1] != 3){
+            } else if(cells[i][j] == 0 && neighbor != 3){
                 cells2[i][j] = 0;
-            } else if(cells[i][j] == 1 && 2 <= cells[i-1][j-1] + cells[i][j-1] + cells[i+1][j-1] + cells[i-1][j] + cells[i+1][j] + cells[i-1][j+1] + cells[i][j+1] + cells[i+1][j+1] && cells[i-1][j-1] + cells[i][j-1] + cells[i+1][j-1] + cells[i-1][j] + cells[i+1][j] + cells[i-1][j+1] + cells[i][j+1] + cells[i+1][j+1] <= 3){
+            } else if(cells[i][j] == 1 && (2 <= neighbor || neighbor <= 3)){
                 cells2[i][j] = 1;
-            } else {
+            } else if(cells[i][j] == 1 && (0 == neighbor || 1 == neighbor || 4 <= neighbor)){
                 cells2[i][j] = 0;
             }
         }
@@ -55,4 +56,3 @@ int main()
 
     return 0;
 }
-
