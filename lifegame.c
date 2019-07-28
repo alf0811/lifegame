@@ -7,49 +7,49 @@
         判断結果によって自身の増すの色を変化させる]
     一定時間ごとに調査する
 */
-
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main()
 {
     int cells[10][10];
     int cells2[10][10];
-
-    for(int i = 0; i < 10; i++){
-        for(int j = 0; j < 10; j++){
-            cells[i][j] = rand()%2;
-            if(j < 9){
-                printf("%d",cells[i][j]);
+ //   srand((unsigned)time(NULL));
+    for(int y = 0; y < 10; y++){
+        for(int x = 0; x < 10; x++){
+            cells[y][x] = rand()%2;
+            if(x < 9){
+                printf("%d",cells[y][x]);
             } else {
-                printf("%d\n",cells[i][j]);
+                printf("%d\n",cells[y][x]);
             }
         }
     }
 
     printf("\n");
 
-    for(int i = 0; i < 10; i++){
-        for(int j = 0; j < 10; j++){
-            int neighbor = cells[i-1][j-1] + cells[i][j-1] + cells[i+1][j-1] + cells[i-1][j] + cells[i+1][j] + cells[i-1][j+1] + cells[i][j+1] + cells[i+1][j+1];
-            if(cells[i][j] == 0 && neighbor == 3){
-                cells2[i][j] = 1;
-            } else if(cells[i][j] == 0 && neighbor != 3){
-                cells2[i][j] = 0;
-            } else if(cells[i][j] == 1 && (neighbor <= 1 || neighbor >= 4)){
-                cells2[i][j] = 1;
+    for(int y = 0; y < 10; y++){
+        for(int x = 0; x < 10; x++){
+            int neighbor = cells[y-1][x-1] + cells[y][x-1] + cells[y+1][x-1] + cells[y-1][x] + cells[y+1][x] + cells[y-1][x+1] + cells[y][x+1] + cells[y+1][x+1];
+            if(cells[y][x] == 0 && neighbor == 3){
+                cells2[y][x] = 1;
+            } else if(cells[y][x] == 0 && neighbor != 3){
+                cells2[y][x] = 0;
+            } else if(cells[y][x] == 1 && (neighbor <= 1 || neighbor >= 4)){
+                cells2[y][x] = 1;
             } else {
-                cells2[i][j] = 0;
+                cells2[y][x] = 0;
             }
         }
     }
 
-    for(int i = 0; i < 10; i++){
-        for(int j = 0; j < 10; j++){
-            if(j < 9){
-                printf("%d",cells2[i][j]);
+    for(int y = 0; y < 10; y++){
+        for(int x = 0; x < 10; x++){
+            if(x < 9){
+                printf("%d",cells2[y][x]);
             } else {
-                printf("%d\n",cells2[i][j]);
+                printf("%d\n",cells2[y][x]);
             }
         }
     }
